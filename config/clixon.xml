@@ -1,0 +1,28 @@
+<clixon-config xmlns="http://clicon.org/config">
+  <CLICON_CONFIGFILE>/etc/clixon/clixon.xml</CLICON_CONFIGFILE>
+  <CLICON_FEATURE>ietf-netconf:startup</CLICON_FEATURE>
+  <CLICON_FEATURE>clixon-restconf:allow-auth-none</CLICON_FEATURE>
+  <CLICON_YANG_DIR>/usr/share/clixon</CLICON_YANG_DIR>
+  <CLICON_YANG_MODULE_MAIN>ietf-system</CLICON_YANG_MODULE_MAIN>
+  <CLICON_YANG_MAIN_DIR>/usr/share/clixon</CLICON_YANG_MAIN_DIR>
+  <CLICON_CLI_MODE>system</CLICON_CLI_MODE>
+  <CLICON_CLISPEC_DIR>/usr/lib/clixon/clispec</CLICON_CLISPEC_DIR>
+  <CLICON_BACKEND_DIR>/usr/lib/clixon/backend</CLICON_BACKEND_DIR>
+  <CLICON_SOCK>/var/run/clixon.sock</CLICON_SOCK>
+  <CLICON_BACKEND_PIDFILE>/var/run/clixon.pid</CLICON_BACKEND_PIDFILE>
+  <CLICON_XMLDB_DIR>/var/clixon</CLICON_XMLDB_DIR>
+  <CLICON_STARTUP_MODE>init</CLICON_STARTUP_MODE>
+  <autocli>
+    <module-default>false</module-default>
+    <rule>
+      <name>include ietf-system</name>
+      <operation>enable</operation>
+      <module-name>ietf-system</module-name>
+    </rule>
+    <rule>
+      <name>include ietf-interfaces</name>
+      <operation>enable</operation>
+      <module-name>ietf-interfaces</module-name>
+    </rule>
+  </autocli>
+</clixon-config>

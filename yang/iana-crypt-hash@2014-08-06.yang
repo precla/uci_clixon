@@ -1,0 +1,51 @@
+module iana-crypt-hash {
+    namespace "urn:ietf:params:xml:ns:yang:iana-crypt-hash";
+    prefix ianach;
+
+    organization "IANA";
+    contact "IANA";
+    description
+        "This YANG module defines a type for storing passwords using a hash
+         function and features to indicate which hash functions are supported
+         by an implementation. The latest revision of this YANG module can
+         be obtained from the IANA website.
+
+         Copyright (c) 2014 IETF Trust and the persons identified as
+         authors of the code. All rights reserved.";
+
+    revision 2014-08-06 {
+        description
+            "Initial revision.";
+        reference
+            "RFC 7317: A YANG Data Model for System Management";
+    }
+
+    typedef crypt-hash {
+        type string {
+            pattern
+                '$0$.*'
+              + '|$1$[a-zA-Z0-9./]{1,8}$[a-zA-Z0-9./]{22}'
+              + '|$5$(rounds=\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{43}'
+              + '|$6$(rounds=\d+$)?[a-zA-Z0-9./]{1,16}$[a-zA-Z0-9./]{86}';
+        }
+        description
+            "The crypt-hash type is used to store passwords using a hash
+             function.";
+        reference
+            "IEEE Std 1003.1-2008 - crypt() function
+             RFC 1321: The MD5 Message-Digest Algorithm
+             FIPS.180-4.2012: Secure Hash Standard (SHS)";
+    }
+
+    feature crypt-hash-md5 {
+        description "Indicates support for the MD5 hash algorithm.";
+    }
+
+    feature crypt-hash-sha-256 {
+        description "Indicates support for the SHA-256 hash algorithm.";
+    }
+
+    feature crypt-hash-sha-512 {
+        description "Indicates support for the SHA-512 hash algorithm.";
+    }
+}

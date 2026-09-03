@@ -1,0 +1,201 @@
+/* include/clixon_config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* cat binary */
+#undef CAT_BIN
+
+/* Pass-through $bindir */
+#undef CLIXON_CONFIG_BINDIR
+
+/* Pass-through $localstatedir */
+#undef CLIXON_CONFIG_LOCALSTATEDIR
+
+/* Pass-through $sbindir */
+#undef CLIXON_CONFIG_SBINDIR
+
+/* Pass-through $sysconfdir */
+#undef CLIXON_CONFIG_SYSCONFDIR
+
+/* Location for apps to find default config file */
+#undef CLIXON_DEFAULT_CONFIG
+
+/* Enable publish of notification streams using SSE and curl */
+#undef CLIXON_PUBLISH_STREAMS
+
+/* Clixon major release */
+#undef CLIXON_VERSION_MAJOR
+
+/* Clixon minor release */
+#undef CLIXON_VERSION_MINOR
+
+/* Clixon path version */
+#undef CLIXON_VERSION_PATCH
+
+/* Enable YANG patch, RFC 8072 */
+#undef CLIXON_YANG_PATCH
+
+/* Grep binary */
+#undef GREP_BIN
+
+/* Define to 1 if you have the `alphasort' function. */
+#undef HAVE_ALPHASORT
+
+/* Define to 1 if you have the <cligen/cligen.h> header file. */
+#undef HAVE_CLIGEN_CLIGEN_H
+
+/* Define to 1 if you have the <curl/curl.h> header file. */
+#undef HAVE_CURL_CURL_H
+
+/* Define to 1 if you have the `getpeereid' function. */
+#undef HAVE_GETPEEREID
+
+/* Define to 1 if you have the `getresuid' function. */
+#undef HAVE_GETRESUID
+
+/* Set to true to enable Native HTTP/1 */
+#undef HAVE_HTTP1
+
+/* Define to 1 if you have the `inet_aton' function. */
+#undef HAVE_INET_ATON
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the `cligen' library (-lcligen). */
+#undef HAVE_LIBCLIGEN
+
+/* Define to 1 if you have the `crypto' library (-lcrypto). */
+#undef HAVE_LIBCRYPTO
+
+/* Define to 1 if you have the `curl' library (-lcurl). */
+#undef HAVE_LIBCURL
+
+/* Define to 1 if you have the `dl' library (-ldl). */
+#undef HAVE_LIBDL
+
+/* Define to 1 if you have the `fcgi' library (-lfcgi). */
+#undef HAVE_LIBFCGI
+
+/* Define to 1 if you have the `netsnmp' library (-lnetsnmp). */
+#undef HAVE_LIBNETSNMP
+
+/* Define to 1 if you have the `netsnmpagent' library (-lnetsnmpagent). */
+#undef HAVE_LIBNETSNMPAGENT
+
+/* Define to 1 if you have the `nghttp2' library (-lnghttp2). */
+#undef HAVE_LIBNGHTTP2
+
+/* Define to 1 if you have the `socket' library (-lsocket). */
+#undef HAVE_LIBSOCKET
+
+/* Define to 1 if you have the `ssl' library (-lssl). */
+#undef HAVE_LIBSSL
+
+/* Define to 1 if you have the `xml2' library (-lxml2). */
+#undef HAVE_LIBXML2
+
+/* Define to 1 if you have the <net-snmp/net-snmp-config.h> header file. */
+#undef HAVE_NET_SNMP_NET_SNMP_CONFIG_H
+
+/* Define to 1 if you have the <nghttp2/nghttp2.h> header file. */
+#undef HAVE_NGHTTP2_NGHTTP2_H
+
+/* Define to 1 if you have the `qsort_s' function. */
+#undef HAVE_QSORT_S
+
+/* Define to 1 if you have the `setns' function. */
+#undef HAVE_SETNS
+
+/* Define to 1 if you have the `sigaction' function. */
+#undef HAVE_SIGACTION
+
+/* Define to 1 if you have the `sigvec' function. */
+#undef HAVE_SIGVEC
+
+/* Have getsockopt SO_PEERCRED */
+#undef HAVE_SO_PEERCRED
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdio.h> header file. */
+#undef HAVE_STDIO_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the `strlcpy' function. */
+#undef HAVE_STRLCPY
+
+/* Define to 1 if you have the `strndup' function. */
+#undef HAVE_STRNDUP
+
+/* Define to 1 if you have the `strsep' function. */
+#undef HAVE_STRSEP
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the `versionsort' function. */
+#undef HAVE_VERSIONSORT
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Default restconf network namespace */
+#undef RESTCONF_NETNS_DEFAULT
+
+/* SSH binary */
+#undef SSH_BIN
+
+/* Define to 1 if all of the C90 standard headers exist (not just the ones
+   required in a freestanding environment). This macro is provided for
+   backward compatibility; new code need not use it. */
+#undef STDC_HEADERS
+
+/* tail binary */
+#undef TAIL_BIN
+
+/* wc binary */
+#undef WC_BIN
+
+/* Restconf package */
+#undef WITH_RESTCONF
+
+/* Use fcgi restconf mode */
+#undef WITH_RESTCONF_FCGI
+
+/* Use native restconf mode */
+#undef WITH_RESTCONF_NATIVE
+
+/* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a
+   `char[]'. */
+#undef YYTEXT_POINTER
+
+#include <clixon_custom.h>
