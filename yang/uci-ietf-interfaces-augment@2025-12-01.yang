@@ -1,0 +1,25 @@
+module uci-ietf-interfaces-augment {
+   namespace "urn:clixon:params:xml:ns:yang:uci-ietf-interfaces-augment";
+   prefix uciif;
+
+   import ietf-interfaces {
+      prefix if;
+   }
+   import clixon-autocli {
+      prefix autocli;
+   }
+
+   description
+      "Augment module to tailor the automatic CLI for ietf-interfaces.
+
+      The standard ietf-interfaces module generates a `set interfaces
+      interface <name>` command whose name variable expands from the
+      datastore (expand_dbvar). This augment applies autocli:skip to the
+      interface list so that the generated command is removed and replaced
+      by a hand-written command in system.cli using a custom expand
+      function (expand_ifs) that lists all interfaces present on the system.";
+
+   augment "/if:interfaces/if:interface" {
+      autocli:skip;
+   }
+}

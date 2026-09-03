@@ -45,13 +45,14 @@ $SSH "$ROUTER" "[ -x /etc/init.d/clixon ] && /etc/init.d/clixon disable 2>/dev/n
 $SSH "$ROUTER" "kill \$(cat /var/run/clixon.pid 2>/dev/null) 2>/dev/null || true"
 
 echo "=== Creating directories ==="
-$SSH "$ROUTER" "mkdir -p /etc/clixon /usr/lib/clixon/clispec /usr/lib/clixon/backend /usr/share/clixon /var/clixon"
+$SSH "$ROUTER" "mkdir -p /etc/clixon /usr/lib/clixon/clispec /usr/lib/clixon/backend /usr/lib/clixon/cli /usr/share/clixon /var/clixon"
 
 echo "=== Deploying YANG models ==="
 $SCP "$DIR/yang/iana-crypt-hash@2014-08-06.yang" "$ROUTER:/usr/share/clixon/"
 $SCP "$DIR/yang/ietf-system@2014-08-06.yang" "$ROUTER:/usr/share/clixon/"
 $SCP "$DIR/yang/ietf-yang-types@2013-07-15.yang" "$ROUTER:/usr/share/clixon/"
 $SCP "$DIR/yang/ietf-interfaces@2018-02-20.yang" "$ROUTER:/usr/share/clixon/"
+$SCP "$DIR/yang/uci-ietf-interfaces-augment@2025-12-01.yang" "$ROUTER:/usr/share/clixon/"
 
 echo "=== Deploying CLI spec ==="
 $SCP "$DIR/clispec/system.cli" "$ROUTER:/usr/lib/clixon/clispec/"
@@ -69,14 +70,26 @@ else
     exit 1
 fi
 
+echo "=== Deploying CLI plugin ==="
+if [ -f "$DIR/cli/uci_interfaces_cli.so" ]; then
+    $SCP "$DIR/cli/uci_interfaces_cli.so" "$ROUTER:/usr/lib/clixon/cli/"
+else
+    echo "ERROR: uci_interfaces_cli.so not found!"
+    echo "Build it first with:"
+    echo "  cd cli && make"
+    exit 1
+fi
+
 echo "=== Clearing old datastore ==="
 $SSH "$ROUTER" "rm -f /var/clixon/*"
 
 echo "=== Verifying deployment ==="
 $SSH "$ROUTER" "grep CLICON_YANG_MODULE_MAIN /etc/clixon/clixon.xml; \
+                grep CLICON_CLI_DIR /etc/clixon/clixon.xml; \
                 ls /usr/lib/clixon/clispec/; \
                 ls /usr/lib/clixon/backend/; \
-                ls /usr/share/clixon/ietf-system*"
+                ls /usr/lib/clixon/cli/; \
+                ls /usr/share/clixon/ietf-interfaces* /usr/share/clixon/uci-ietf-interfaces*"
 
 echo "=== Starting clixon backend (daemon mode, not via procd) ==="
 $SSH "$ROUTER" "clixon_backend -s init -l s"
@@ -88,4 +101,5 @@ $SSH "$ROUTER" "ps w | grep -v grep | grep clixon_backend || echo 'NOT RUNNING -
 echo "=== Done ==="
 echo "Connect with: ssh $1 clixon_cli"
 echo "Try:  set system hostname my-router"
+echo "Try:  set interfaces interface ?"
 echo "Then: commit"

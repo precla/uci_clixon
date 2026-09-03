@@ -1,8 +1,16 @@
 CLICON_MODE="system";
 CLICON_PROMPT="system> ";
+CLICON_PLUGIN="uci_interfaces_cli";
 
 # Configuration commands (auto-generated from YANG via @datamodel)
 set @datamodel, cli_set();
+# Interface list is autocli:skip'ed (see uci-ietf-interfaces-augment);
+# hand-written below with custom name expansion from the running system.
+set interfaces interface <name:string expand_ifs()>("Interface name"), cli_set();{
+    description("A textual description of the interface") <description:string>("Description"), cli_set();
+    enabled("The desired state of the interface") <enabled:bool>("Enabled (true/false)"), cli_set();
+    type("The type of the interface") <type:string>("Interface type"), cli_set();
+}
 merge @datamodel, cli_merge();
 create @datamodel, cli_create();
 delete("Delete a configuration item") @datamodel, cli_del();
